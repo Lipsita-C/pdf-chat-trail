@@ -89,6 +89,42 @@ create_indexes_tab = gr.Interface(
 
 
 
+# delete_index_tab = gr.Blocks() 
+# with delete_index_tab :
+#     gr.Markdown(
+#         """
+#     # Delete Collection if not using.
+#     Select the Index from Dropdown
+#     """
+#     )
+#     with gr.Row():
+#         gr.Button("Log Out", link = "/logout")
+#     # with gr.Row():
+
+#     #     del_input = gr.Dropdown(choices=call_dd(), label='Select the Collection')
+#     #     del_output = gr.Textbox()
+    
+#     # with gr.Row():
+#     #     btn = gr.Button("Refresh Collections", variant='primary')
+#     #     del_button = gr.Button("Delete", variant='stop')
+
+#     # del_button.click(Utilities.del_index, inputs=[del_input], outputs=del_output)
+    
+#     # btn.click(call_dd, [], [del_input])
+#     with gr.Row():
+
+ 
+#         del_output = gr.Textbox()
+        
+#     with gr.Row():
+#         btn = gr.Button("Refresh Collections", variant='primary')
+#         del_button = gr.Button("Delete", variant='stop')
+
+#     del_button.click(Utilities.del_index, inputs=[], outputs=del_output)
+    
+#     btn.click(call_dd, [], [])
+
+
 delete_index_tab = gr.Blocks() 
 with delete_index_tab :
     gr.Markdown(
@@ -98,34 +134,16 @@ with delete_index_tab :
     """
     )
     with gr.Row():
-        gr.Button("Log Out", link = "/logout")
-    # with gr.Row():
-
-    #     del_input = gr.Dropdown(choices=call_dd(), label='Select the Collection')
-    #     del_output = gr.Textbox()
-    
-    # with gr.Row():
-    #     btn = gr.Button("Refresh Collections", variant='primary')
-    #     del_button = gr.Button("Delete", variant='stop')
-
-    # del_button.click(Utilities.del_index, inputs=[del_input], outputs=del_output)
-    
-    # btn.click(call_dd, [], [del_input])
-    with gr.Row():
-
- 
+        del_input = gr.Dropdown(choices=Utilities.print_indexes_tuple(), label='Select the Collection')
         del_output = gr.Textbox()
-        
+    
     with gr.Row():
         btn = gr.Button("Refresh Collections", variant='primary')
         del_button = gr.Button("Delete", variant='stop')
 
-    del_button.click(Utilities.del_index, inputs=[], outputs=del_output)
+    del_button.click(Utilities.del_index, inputs=[del_input], outputs=del_output)
     
-    btn.click(call_dd, [], [])
-
-
-
+    btn.click(call_dd, [], [del_input])
 
 
 
